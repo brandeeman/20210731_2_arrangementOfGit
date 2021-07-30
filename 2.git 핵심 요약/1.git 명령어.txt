@@ -1,0 +1,173 @@
+*txt파일 : utf8
+-파일 위치 : git bash
+
+---
+
+*기본 명령어
+-git init : 깃 시작
+-git status : Working directory 상태 확인
+-git add a.txt : Staging Area로 올라옴
+(-git status)
+-git commit -m "B0" : 메시지 "B0"로 commit한다. -> 버전 Repository 올림.(메세지 : 간략하게 목적을 말해라.)
+-git log : Repository에 있는 버전 확인
+
+-git commit -am "B1" : 
+Working directory -> Staging  Area를 통과하여 바로 Repository까지 도달
+
+-
+
+-git rm --cached test.txt : staging Area에서 Working directory로 내려 보낸다. 
+
+-git add . : Working directory의 모든 변동 사항을 Staging Area에 올려라.
+
+-git commit : 조금 더 자세히 commit에 대한 기록을 남길 수 있다.
+
+---
+
+-vim a.txt
+
+*vim : 유닉스 사용 에디터
+
+*입력모드 전환 : a
+*명령모드 전환 : esc
+:w : 저장
+:q : 종료
+:q! : 강제종료
+:wq : 저장하면서 종료
+
+-
+
+-ls : 리스트를 본다.
+-ls -al : 모든 리스트를 본다. 
+-clear : 코드를 깨끗이 한다. 
+
+*디렉토리 변경
+-cd..
+-cd remote-practice2/
+
+---
+
+*원격 저장소 github에 추가 명령어 
+
+*remote : 상호작용(로컬 저장소 - 원격 저장소)
+-git remote add origin https://github.com/brandeeman/rebase20210608.git
+: 원격 저장소 이름은 origin으로 하겠다.(remote : 로컬 저장소와 원격 저장소를 연결한다.) : 
+: 뒤에 붙는 것은 원격 저장소 url
+-git push -u origin main : 내 main 브랜치를 origin의 main 브랜치로 push해라.
+: -u는 디폴트 : 추후 git push만 해도 : 내 main 브랜치를 origin의 main 브랜치로 push해라. 명령.
+(u를 쓰면 pull. push 둘 다 영향을 미친다.)
+-git commit -am "first commit" : 커밋 후
+-git push : 자동 push 가능. 로컬 Repository에 있는 모든 commit이 원격 저장소로 올라간다. 
+
+*조회 방법 
+-git remote
+
+-git remote -v : url까지 다 나온다.
+
+*로컬 저장소에서 원격 저장소를 지우는 방법
+-git remote rm origin
+
+-
+
+-pull : merge : 합병
+-git pull origin main : origin을 내 repository의 main 브랜치로 갖고 와라.(merge 됨)
+*참고 : pull을 썼을 경우 내 작업 내용은 사라진다. 
+
+*fecth : 브랜치로만 확인 가능 : 내 main 브랜치에 영향을 주지는 않는다. 
+origin의 내용을 내 main 브랜치로 가져오는 데 내 작업 내용은 유지시키고 싶을 때(가져만 와라.)
+-git fetch origin main 
+
+-git fetch origin
+
+*fecth 확인법
+참고 : 11분 54초 : 로컬과 원격의 상호작용 실습(+출동이 난 경우)
+-git checkout origin/master
+-같은 말 : git checkout FETCH_HEAD
+-> 돌아가기 : git checkout master
+
+-
+
+*clone 
+-github에 'Clone or download' 초록색 상자가 있다.
+-원격 저장소의 내용이 로컬 저장소에 복사된다.
+
+-git clone https://github.com/brandeeman/rebase20210608.git : 원격 저장소 내요을 현재 디렉토리에 '복사'하기
+
+*참고 : 클론은 remote를 자동 추가 해준다. 
+
+---
+
+*git log 
+
+*그래프로 보는 방법
+-git log --all --decorate --graph --oneline
+
+---
+
+*branch
+
+-git branch my_branch1 : my_branch1이라는 새로운 브랜치를 만든다. 
+-git branch : 만들어진 브랜치의 이름을 확인한다. 
+
+-git checkout my_branch : 브랜치 전환 방법
+
+-my branch의 commit한 내용을 master branch에 반영하고 싶을 때
+-> master branch로 이동 : git checkout master
+-git merge my_branch : my_branch의 내용을 master branch에 합친다. 
+
+-git checkout -b branch1 : branch1 생성과 동시에 checkout을 한다. 
+-git commit -m "branch commit"
+
+-git checkout master : master branch로 다시 이동한다.(branch.txt 파일이 안 보이게 된다.) 
+-git checkout branch1 : branch1 branch로 이동한다.
+
+---
+
+*취소 명령어 : Working directory, Staging area, Repository
+
+-HEAD^ 뜻 : 가장 최근 버전에서
+-^ : 하나 되돌리자
+
+-git reset --soft HEAD^ : Staging area까지 되돌리기
+-git reset --mixed HEAD^ : Working directory로 되돌리기
+-git reset --hard HEAD^ : 수정 전으로 되돌리기 : Working directory 이전
+
+*가장 최근 커밋으로부터 하나 전으로 되돌려라
+-git reset --hard HEAD^ : 하나
+-git reset --hard HEAD^ : 둘
+-git reset --hard HEAD^ : 셋
+
+---------------
+
+*git hub : full request 날리는 법
+
+*방법1
+원격저장소 origin -> Settings -> Collaborators -> user 이름이나 email -> Add collaborator -> 초대 메일이 간다. 
+-이 저장소에 git add push 권한이 생긴다. 
+-> 대규모 프로젝트에는 권장하지 않는다. 
+
+*방법2 : full request
+원격저장소 origin -> Fork -> 내 계정 클릭 -> 내 계정에 repository가 생김. 
+-> 원래 repository가 아닌 fork 한 계정에서 clone 하는 것이 중요하다. 
+-> 초록색 : clone or download -> 내 repository : git clone URL
+-> git branch를 만들고 작성하고자 하는 하는 commit 작성
+
+-git clone URL
+-cd 폴더명/
+-ls
+-git branch : 어떤 브랜치가 있는지 확인
+-git branch newbranch : 브랜치를 만든다. 
+-git checkout newbranch : 브랜치가 있는 곳으로 이동
+(-참고 : git checkout -b newbranch2 : 브랜치를 만듦과 동시에 브랜치로 이동)
+-git add index.html
+-git status
+-git commit
+-git push origin newbranch(*참고 : main이 아닌 newbranch) -> fork에 올라간다.
+
+-> Github 내 : 노란색 : newbranch 생김 -> 녹색버튼 : compare&pull request 버튼 누르기
+-> 녹색버튼 : create pull request 버튼 누르기
+(협업하기(2) - 로컬도 변했는데 원격도 변한 경우 : 10분)
+-> 본 계정 위치 : 주인장 : Merge pull request 버튼이 있다. -> 누르기 -> confirm merge
+-> pull request 날린 브랜치는 지워주기 : Delete branch
+
+---

@@ -1,0 +1,33 @@
+*Read the guid 
+-github의 대략적인 튜톨리얼
+
+---
+
+*오른쪽
+-github에 올라오는 핫한 프로젝트
+
+---
+
+*검색 : react
+facebook/react : facebook 유저가 만든 react
+
+---
+
+*github도 facebook처럼 follow 할 수 있다. 
+
+---
+
+*원격저장소 : 인터넷 어딘가에 존재하는 저장소
+
+Repository name : 이름
+discription : 묘사
+
+public : 공개
+private : 비공개
+
+---
+
+new : 원격 저장소 repository를 만든다. 
+
+---
+

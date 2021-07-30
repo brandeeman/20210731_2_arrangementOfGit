@@ -1,0 +1,37 @@
+github에서 보여지는 부분은 최종 결과물만 보여지지만,
+github는 모든 걸 다 가지고 있다. 
+
+---
+
+*new Repository 생성
+
+*Add a README file : 빈 껍데기 README 생성된다.
+*Add .gitignore : 어떤 파일은 git으로 안 올릴 것이라는 정리
+*Choose a license : 공짜 프로그램도 라이센스가 다 다르다. 
+
+---
+
+*README.md
+-설명서
+-이 프로젝트는 어떤 프로젝트입니다.
+
+---
+
+*Choose a license
+: 공짜 프로그램도 라이센스가 다 다르다.
+-GAN : 마구잡이로 써도 된다. 
+
+----------
+
+issues : 
+-게시판 기능
+
+Assignees 
+-담담장 지정
+-> 담당자에게 이메일이 나간다. 
+
+----------
+
+*GitHub Desktop
+Clone Repository : 깃허브 repository 가져오겠다.
+

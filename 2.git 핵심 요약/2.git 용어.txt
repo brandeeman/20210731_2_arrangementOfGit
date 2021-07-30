@@ -1,0 +1,55 @@
+*master -> main으로 바뀜
+-local repository : Local 저장소
+
+---
+
+*하나의 버전이 만들어 지는 과정
+1.Working directory(작업공간)
+2.Staging Area(후보자)
+3.Repository(버전)
+
+*버전이 만들어지는 2가지 단계 
+1.git add
+2.git commit
+
+---
+
+*Working directory
+untracked files : 의미 : 파일이 새로 생겼다.
+
+modified : 수정되었습니다.
+
+-
+
+*Staging Area
+changed to be committed : commit이 될 파일을 발견했다.
+
+modified : 수정되었습니다.
+
+-
+
+commit 해시값 : commit의 아이디 값 : commit 메시지를 식별해주는 역할
+-두 번째 버전
+-첫 번째 버전
+
+---
+
+*github
+
+-push : 코드를 업로드 한다.  
+
+---
+
+*git push
+rejected 된 경우 : 서로 같은 줄의 코드가 충돌 되었을 때
+or
+CONFLICT
+
+-text 경계선이 생긴다.
+<<<<<<<<<<HEAD
+==============
+>>>>>>>>>>>>>> 해시값
+
+수동으로 결정 : 다시 커밋을 하면 먹혀준다. 
+
+---
